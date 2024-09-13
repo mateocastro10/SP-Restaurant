@@ -1,0 +1,17 @@
+{% extends "base_template.html" %}
+{% block title %}Restaurante Sancho Panza{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-orange">Buscar receta por tiempo de elaboración</h1>
+    <hr class="my-4" style="border-top: 2px solid #8B4513;">
+    <form action="{{ url_for('recetasportiempo') }}" method="post" class="container">
+        <div class="form-group">
+            <label for="tiemporeceta">Ingrese tiempo de la receta</label>
+            <input type="text" class="form-control" id="tiemporeceta" name="tiemporeceta" placeholder="Tiempo de la receta" required>
+        </div>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base_template.html" %}
+{% block title %}Restaurante Sancho Panza{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-orange">Ingresar Ingredientes</h1>
+    <hr class="my-4" style="border-top: 2px solid #8B4513;">
+    <form action="{{ url_for('ingresaringredientes') }}" method="post" class="container">
+        {% for i in range(x) %}
+        <div class="form-group">
+            <label for="nombrei{{i}}">Nombre del ingrediente</label>
+            <input type="text" class="form-control" id="nombrei{{i}}" name="nombrei{{i}}" placeholder="Nombre del ingrediente" required>
+        </div>
+        <div class="form-group">
+            <label for="cantidadi{{i}}">Cantidad del ingrediente</label>
+            <input type="text" class="form-control" id="cantidadi{{i}}" name="cantidadi{{i}}" placeholder="Cantidad del ingrediente" required>
+        </div>
+        <div class="form-group">
+            <label for="unidad{{i}}">Unidad de medida del ingrediente</label>
+            <input type="text" class="form-control" id="unidad{{i}}" name="unidad{{i}}" placeholder="Unidad de medida" required>
+        </div>
+        <hr class="my-4" style="border-top: 1px solid #8B4513;">
+        {% endfor %}
+        <input name="x" type="hidden" value="{{x}}">
+        <input name="recetaid" type="hidden" value="{{recetaid}}">
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Ingresar Ingrediente</button>
+            <button type="reset" class="btn btn-secondary">Restablecer</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

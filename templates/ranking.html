@@ -1,0 +1,31 @@
+{% extends "base_template.html" %}
+{% block title %}Restaurante Sancho Panza{% endblock %}
+{% block content %}
+<h1 class="text-center text-orange">Recetas con más me gusta</h1>
+<hr class="my-4" style="border-top: 2px solid #8B4513;">
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Receta</th>
+                <th>Autor</th>
+                <th>Cantidad de me gusta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Receta in ordenada %}
+            <tr>
+                <td>
+                    <form action="{{ url_for('listadorecetas') }}" method="post" style="display:inline;">
+                        <input type="hidden" name="recetaid" value="{{ Receta.id }}">
+                        <button type="submit" class="btn btn-link">{{ Receta.nombre }}</button>
+                    </form>
+                </td>
+                <td>{{ Receta.Usuario.nombre }}</td>
+                <td>{{ Receta.cantidadmegusta }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

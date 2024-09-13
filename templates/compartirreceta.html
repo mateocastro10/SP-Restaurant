@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+{% block title %}Restaurante Sancho Panza{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-orange">Compartir Receta</h1>
+    <hr class="my-4" style="border-top: 2px solid #8B4513;">
+    <form action="{{ url_for('ingreso_receta') }}" method="post" class="container">
+        <div class="form-group">
+            <label for="nombre">Nombre de la receta</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="tiempo">Tiempo estimado</label>
+            <input type="text" class="form-control" id="tiempo" name="tiempo" placeholder="Tiempo" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" cols="60" rows="8" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="cing">Cantidad de ingredientes</label>
+            <input type="text" class="form-control" id="cing" name="cing" placeholder="Cantidad" required>
+        </div>
+        <input name="usuario_actual" type="hidden" value="{{usuario_actual}}">
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Ingresar ingredientes</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
